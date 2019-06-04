@@ -1,55 +1,56 @@
 import React, { Component } from 'react';
 import TrailContainer from '../TrailContainer';
-import GoogleMapReact from 'google-map-react'
-import { fitBounds } from 'google-map-react/utils';
 
-const Location = ({ text }) => <div>{text}</div>;
 
-class MapContainer extends Component {
-  static defaultProps = {
-    center: {
-      lat: 39.74,
-      lng: -104.99
-    },
-    zoom: 8
-  };
-  bounds = {
-    nw: {
-      lat:  39.113014,
-      lng: -105.358887
-    }
-}
-    
- 
+import { compose, withProps } from "recompose"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+
+const MapContainer = compose(
+  withProps({
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCqGFJAp0gCotm-xP3pi4JLzSXv1fo1mRo&callback=initMap",
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `400px` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
+  }),
+  withScriptjs,
+  withGoogleMap
+)((props) =>
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{ lat: -34.397, lng: 150.644 }}
+  >
+    {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} onClick={props.onMarkerClick} />}
+  </GoogleMap>
+)
+
+class MyFancyComponent extends React.PureComponent {
+  state = {
+    isMarkerShown: false,
+  }
+
+  componentDidMount() {
+    this.delayedShowMarker()
+  }
+
+  delayedShowMarker = () => {
+    setTimeout(() => {
+      this.setState({ isMarkerShown: true })
+    }, 3000)
+  }
+
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false })
+    this.delayedShowMarker()
+  }
+
   render() {
-   console.log(this.props.trails);
-    const trailLoc = this.props.trails.map((trail) => {
-      return (
-           <Location
-            lat={trail.lat}
-            lng={trail.long}
-            text={trail.name}
-          />
-      )
-    })
-
-    return (
-      
-      <div id ="myMap" style={{ height: '50vh', width: '100%' }}>
-        <GoogleMapReact
-       
-
-          bootstrapURLKeys={{ key: 'AIzaSyANLNtgpORdnRgDMFJRvEh73_7ecNkzK8o' }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
-        {trailLoc}
     
-          
-        </GoogleMapReact>
-
-      </div>
-    );
+    return (
+      <MapContainer
+        isMarkerShown={this.state.isMarkerShown}
+        onMarkerClick={this.handleMarkerClick}
+      />
+    )
   }
 }
 

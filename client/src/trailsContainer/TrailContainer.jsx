@@ -113,7 +113,7 @@ deleteTrail = async (id) => {
 
         return(
             <div>
-                <div className="mapDiv">
+                <div>
                 <MapContainer trails={this.state.trails}/>
                 </div><br/>
                 <div className="formDiv">

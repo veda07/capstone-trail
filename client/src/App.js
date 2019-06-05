@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react';
+import './App.css';
 import TrailContainer from './trailsContainer/TrailContainer';
+import HomeContainer from './homeContainer/HomeContainer';
 
 
 
@@ -12,10 +14,13 @@ class App extends Component {
 
   render() {
     return (
- 
+        
+      
         <div>
-          <h1>Trails App </h1>
+           <HomeContainer></HomeContainer>
+        
           <TrailContainer showTrails={this.showTrails}/>
+         
 
         </div>
     );

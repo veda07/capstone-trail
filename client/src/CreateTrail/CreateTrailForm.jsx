@@ -1,28 +1,46 @@
 import React, { Component } from 'react';
 
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 class CreateTrailForm extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             name: '',
             review: '',
             location: {
                 lat: '',
-                long: ''
+                long: '',
+               
             }
-
-
         }
+            this.toggle = this.toggle.bind(this);
     }
+      
+        toggle() {
+          this.setState(prevState => ({
+            modal: !prevState.modal
+          }));
+        }
+
+
+        
+    
     handleChange = (e) =>{
         this.setState({
             location: { ...this.state.location, 
         [e.target.name]:  e.target.value}
         })
     }
-    render(){
-        return(
-            <form onSubmit = {this.props.addTrail.bind(null, this.state.location)}>
+    render() {
+        return (
+          <div>
+            <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+            <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>
+              <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+              <ModalBody>
+            
+              <form onSubmit = {this.props.addTrail.bind(null, this.state.location)}>
             <h3>Trail Reviews</h3>
             <label>
                 Trail Name:
@@ -40,9 +58,19 @@ class CreateTrailForm extends Component {
              </label>
                 <input type="submit"/>
             </form>
-        ) 
+              </ModalBody>
+        
+            </Modal>
+          </div>
+        )
+      }
     }
 
-}
+           
+        
+    
+
+
 
 export default CreateTrailForm; 
+

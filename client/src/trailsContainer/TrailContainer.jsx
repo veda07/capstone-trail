@@ -23,6 +23,9 @@ componentDidMount  (){
 
 }
 
+
+
+
 showTrails = async () => {
     try {
         const response = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/api/v1/trails/`)

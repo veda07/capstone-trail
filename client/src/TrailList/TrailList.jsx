@@ -15,7 +15,7 @@ const Trails = (props) => {
         <CardBody key={trail._id}>
           <CardTitle>{trail.name}</CardTitle>
           <CardText>{trail.review}</CardText>
-          <Button onClick={(e)=>{e.preventDefault(); props.deleteTrail(trail._id); }}>Delete</Button>
+          <Button className="button" onClick={(e)=>{e.preventDefault(); props.deleteTrail(trail._id); }}>Delete</Button>
         </CardBody>
       </Card>
       </CardDeck>

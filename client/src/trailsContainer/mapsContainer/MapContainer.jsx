@@ -3,6 +3,7 @@ import TrailContainer from '../TrailContainer';
 import GoogleMapReact from 'google-map-react'
 import { fitBounds } from 'google-map-react/utils';
 
+
 const Location = ({ text }) => <div>{text}</div>;
 
 class MapContainer extends Component {
@@ -25,10 +26,13 @@ class MapContainer extends Component {
    console.log(this.props.trails);
     const trailLoc = this.props.trails.map((trail) => {
       return (
+        
            <Location
             lat={trail.lat}
             lng={trail.long}
             text={trail.name}
+     
+         
           />
       )
     })
@@ -38,6 +42,7 @@ class MapContainer extends Component {
       <div className ="myMap" style={{ height: '75vh', width: '40%' }}>
         <GoogleMapReact
        
+    
 
           bootstrapURLKeys={{ key: 'AIzaSyANLNtgpORdnRgDMFJRvEh73_7ecNkzK8o' }}
           defaultCenter={this.props.center}

@@ -23,14 +23,15 @@ class EditTrail extends Component {
     render(){
         console.log(this.state);
     return (
-      <div>
+    <div className="container" style={{ width: '15%'}}>
+      <div className="editer">
        
         <form onSubmit={this.handleSubmit}> 
         
           <label>
             Edit Trail Name :
             <input onChange={this.handleChange} type="text" name="name"/>
-          </label>
+          </label><br/>
         <label>
             Edit Review :
             <input onChange={this.handleChange} type="text" name="review"/>
@@ -38,7 +39,7 @@ class EditTrail extends Component {
         <input type="submit"/>
         </form>
       </div>
-  
+  </div>
       )
     }
 }

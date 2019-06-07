@@ -33,7 +33,7 @@ export default class Header extends React.Component {
           <h1>Trailing</h1>
           
         </Navbar>
-        <footer className="footer"/>
+      
       </div>
       
     );

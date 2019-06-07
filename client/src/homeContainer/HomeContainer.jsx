@@ -1,7 +1,8 @@
 import React, {Component} from 'react' ;
 import Header from  './Header/header';
 
-import { renderComponent } from 'recompose';
+
+
 
 class HomeContainer extends Component {
     constructor (){
@@ -12,7 +13,7 @@ class HomeContainer extends Component {
             return(
             <div>
                 <Header/>
-                
+              
                
             </div>
             )

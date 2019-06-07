@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TrailContainer from './trailsContainer/TrailContainer';
 import HomeContainer from './homeContainer/HomeContainer';
+import CreateTrailForm from './CreateTrail/CreateTrailForm';
 
 
 
@@ -18,6 +19,7 @@ class App extends Component {
       
         <div>
            <HomeContainer></HomeContainer>
+          
         
           <TrailContainer showTrails={this.showTrails}/>
          

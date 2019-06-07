@@ -9,12 +9,24 @@
 }
 
 .myMap {
-  display: center;
+ border-style: ridge;
+ border-width: 5px;
+ margin: 0 auto 0 auto;
+ 
 
+}
+body {
+background-image: url('./images/123.jpg');
 }
 
 .formDiv {
 display: inline-block;
+}
+
+.reviewModal {
+position: absolute;
+top: 10%;
+
 }
 
 .header {
@@ -36,9 +48,29 @@ display: inline-block;
   font-family: 'Oswald', sans-serif;
 }
 
+.card-body{
+background: transparent;
+}
+.trailing {
+  position: absolute;
+  top: 90%;
+ 
+}
+.container {
+  
+  border: solid black 1px;
+  padding: 20px;
+  position: absolute;
+  background: white;
+  top: 10%;
+  left: 42%;
+  
+}
+.editer {
+ width: 80px;
+}
 
-
-.footer {
+/* .footer {
   background: rgba(229, 233, 231, 0.247);
   min-height: 7vh;
   display: flex;
@@ -50,7 +82,7 @@ display: inline-block;
   border-block-end-width: 10px;
   border-block-end-color: azure;
   position: fixed;
-  bottom:0;
-  left:0;
+  top: 100%;
   
-}
+  
+} */

@@ -35,7 +35,7 @@ class MapContainer extends Component {
     
     return (
       
-      <div className ="myMap" style={{ height: '75vh', width: '50%', align: "center" }}>
+      <div className ="myMap" style={{ height: '75vh', width: '40%' }}>
         <GoogleMapReact
        
 

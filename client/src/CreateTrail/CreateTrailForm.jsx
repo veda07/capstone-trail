@@ -34,8 +34,8 @@ class CreateTrailForm extends Component {
     }
     render() {
         return (
-          <div>
-            <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+          <div className="reviewModal">
+            <Button  color="info" onClick={this.toggle}>{this.props.buttonLabel}Leave A Trail Review</Button>
             <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>
               <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
               <ModalBody>
